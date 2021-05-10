@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<context:component-scan base-package="spmem"/>
+<context:component-scan base-package="asl"/>
+<context:component-scan base-package="ll"/>
+<context:component-scan base-package="rto"/>
+<mybatis-spring:scan base-package="spmem.mapper"/>
+<!-- 추가됨! -->
+
+<!-- DB Connection, dbcp 등등.. -->
+<bean id="dataSource"
+	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+	<property name="username" value="big5"/>
+	<property name="password" value="admin1234"/>
+</bean>
+
+<bean id="transactionManager" 
+	class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  <constructor-arg ref="dataSource" />
+</bean>
+
+<!-- 23번으로 db연결 후 crud 명령의 객체를 호출한다.-->
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	<constructor-arg>
+		<ref bean="dataSource"/>
+	</constructor-arg>
+</bean>
+
+<!-- query 연동할 함수, 프로시저 등등을 호출할 수 있다. select용 -->
+<bean class="org.springframework.jdbc.core.simple.SimpleJdbcCall">
+	<constructor-arg>
+		<ref bean="jdbcTemplate"/>
+	</constructor-arg>
+</bean>
+
+<!-- query 연동할 함수, 프로시저 등등을 호출할 수 있다. insert,delete,update -->
+<bean class="org.springframework.jdbc.core.simple.SimpleJdbcInsert">
+	<constructor-arg>
+		<ref bean="jdbcTemplate"/>
+	</constructor-arg>
+</bean>
+
+<!-- myBatis -->
+<bean id="" class="org.mybatis.spring.SqlSessionFactoryBean">
+  <property name="dataSource" ref="dataSource" />
+  <!-- spring.scan을 써서 나머지가 필요없어짐 -->
+</bean>
+<!-- Gmail -->
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="smtp.naver.com" />
+    <property name="port" value="587" />
+    <property name="username" value="chosen158@naver.com" />
+    <property name="password" value="!Q%T(O2w6yspinU" />
+    <property name="javaMailProperties">
+    <props>
+      <prop key="mail.smtp.auth">true</prop>
+      <prop key="mail.smtp.starttls.enable">true</prop>
+    </props>
+    </property>
+  </bean>
+</beans>
