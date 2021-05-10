@@ -1,0 +1,6 @@
+#!/bin/bash
+mongod --shardsvr --dbpath /usr/local/var/testdb/mydata02 --logpath /usr/local/var/testdb/mydata02/log/monod1.log --port 27030 --nojournal --replSet RS |
+mongod --shardsvr --dbpath /usr/local/var/testdb/mydata03 --logpath /usr/local/var/testdb/mydata03/log/monod2.log --port 27031 --nojournal --replSet RS |
+mongod --shardsvr --dbpath /usr/local/var/testdb/mydata04 --logpath /usr/local/var/testdb/mydata04/log/monod3.log --port 27032 --nojournal --replSet RS |
+mongod --shardsvr --dbpath /usr/local/var/testdb/mydata05 --logpath /usr/local/var/testdb/mydata05/log/monod3.log --port 27033 --nojournal --replSet TS |
+mongod --shardsvr --dbpath /usr/local/var/testdb/mydata06 --logpath /usr/local/var/testdb/mydata06/log/monod3.log --port 27034 --nojournal --replSet TS02

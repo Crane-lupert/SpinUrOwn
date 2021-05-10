@@ -1,0 +1,4 @@
+!#/bin/bash
+mongod --shardsvr --dbpath /usr/local/var/data/mydata02 --logpath /usr/local/var/data/mydata02/log/mongod1.log --port 27030 --nojournam --replSet RS
+mongod --shardsvr --dbpath /usr/local/var/data/mydata03 --logpath /usr/local/var/data/mydata03/log/mongod2.log --port 27031 --nojournam --replSet RS
+mongod --shardsvr --dbpath /usr/local/var/data/mydata04 --logpath /usr/local/var/data/mydata04/log/mongod3.log --port 27032 --nojournam --replSet RS
