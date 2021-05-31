@@ -10,6 +10,8 @@ Project명	 : 	SpinUrOwn
 기능 	
 사용자별로 선호하는 장르구성요소정도와 선호하는 분위기를 기입하게 하고, 이에 적합한 순으로 음원을 추천한다. 음원은 Youtube VideoID를 통해서 추천되고, 음원이 부족할 경우 사용자가 직접 음원을 서버에 등록할 수 있다. 음원은 해당 음원의 VideoID, 노래의 장르별 반영정도, 노래의 분위기를 사용자가 직접 입력하여 등록할 수 있다. 사용자 선호 분위기 측정과 노래별 분위기측정은 Youtube 댓글에 들어간 형용사를 의미연결망으로 연결하여 의미가 있다 판단되는 형용사와의 연결정도를 기반으로 가중치를 만들어낸 것을 사용자에게 옵션+range형식으로 입력하게 한다.
 
+시연영상   :  https://www.youtube.com/playlist?list=PLeffcjg78LLKu5xyjFwROzmolv7Y1g1nb
+
 기대효과	 :	사용자에게 더욱 적합한 음원추천을 할 수 있다
 
 요구사항 명세서 : https://docs.google.com/document/d/14t4ee9WxEkTTENh9dGkXyQOYW3vQLpeD0V_HqjcbVmM/edit?usp=sharing
