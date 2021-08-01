@@ -1,4 +1,17 @@
 # SpinUrOwn
+(Eng)
+Solo project
+
+Intention
+Collaborative filtering on existing music sites in kor(i.e. melon, flo*) cannot reflect current music trend, which is personalize and genre hybrid. In this website, user can write atmosphere and genre-ingredient of each song. That makes more personalized recommandations possible.
+*notice : when i was making this, spotify isn't launched in kor.
+
+Function descripion
+If users write their own prefered atmosphere and prefered genre, web application recommands music on the basis of Euclidean distance*. Whole music is processed with videoID on Youtube. If there's nothing left to recommand, user can add songs by himself. Each song has to be added with VideoID, genre-ingredient, Atmosphere data. The Atmosphere about each user and each song is measured by picking 6 emotional words from 24. These words are connected into semantic network so each word has its own emotional value.
+*At that time i was in Data Engineer bootcamp, so there's naive algorithm. I upgrade this in future project.
+*https://github.com/Crane-lupert/museclassification
+
+Performing video : https://www.youtube.com/playlist?list=PLeffcjg78LLKu5xyjFwROzmolv7Y1g1nb
 
 Project명	 : 	SpinUrOwn
 
